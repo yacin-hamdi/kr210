@@ -1,0 +1,4 @@
+source;share/kr210_description/local_setup.bash
+source;share/kr210_description/local_setup.dsv
+source;share/kr210_description/local_setup.sh
+source;share/kr210_description/local_setup.zsh
