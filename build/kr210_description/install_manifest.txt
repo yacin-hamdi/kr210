@@ -1,4 +1,4 @@
-/home/moose/ros2_ws/install/kr210_description/share/kr210_description/urdf/kr210_amr.urdf.xacro
+/home/moose/ros2_ws/install/kr210_description/share/kr210_description/urdf/kr210_arm.urdf.xacro
 /home/moose/ros2_ws/install/kr210_description/share/kr210_description/urdf/kr210.urdf.xacro
 /home/moose/ros2_ws/install/kr210_description/share/kr210_description/meshes/gripper/gripper_base.dae
 /home/moose/ros2_ws/install/kr210_description/share/kr210_description/meshes/gripper/finger_right_collision.dae

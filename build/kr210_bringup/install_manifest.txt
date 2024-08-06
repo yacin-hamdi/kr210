@@ -1,0 +1,16 @@
+/home/moose/ros2_ws/install/kr210_bringup/share/kr210_bringup/launch/kr210_rviz.launch.xml
+/home/moose/ros2_ws/install/kr210_bringup/share/ament_index/resource_index/package_run_dependencies/kr210_bringup
+/home/moose/ros2_ws/install/kr210_bringup/share/ament_index/resource_index/parent_prefix_path/kr210_bringup
+/home/moose/ros2_ws/install/kr210_bringup/share/kr210_bringup/environment/ament_prefix_path.sh
+/home/moose/ros2_ws/install/kr210_bringup/share/kr210_bringup/environment/ament_prefix_path.dsv
+/home/moose/ros2_ws/install/kr210_bringup/share/kr210_bringup/environment/path.sh
+/home/moose/ros2_ws/install/kr210_bringup/share/kr210_bringup/environment/path.dsv
+/home/moose/ros2_ws/install/kr210_bringup/share/kr210_bringup/local_setup.bash
+/home/moose/ros2_ws/install/kr210_bringup/share/kr210_bringup/local_setup.sh
+/home/moose/ros2_ws/install/kr210_bringup/share/kr210_bringup/local_setup.zsh
+/home/moose/ros2_ws/install/kr210_bringup/share/kr210_bringup/local_setup.dsv
+/home/moose/ros2_ws/install/kr210_bringup/share/kr210_bringup/package.dsv
+/home/moose/ros2_ws/install/kr210_bringup/share/ament_index/resource_index/packages/kr210_bringup
+/home/moose/ros2_ws/install/kr210_bringup/share/kr210_bringup/cmake/kr210_bringupConfig.cmake
+/home/moose/ros2_ws/install/kr210_bringup/share/kr210_bringup/cmake/kr210_bringupConfig-version.cmake
+/home/moose/ros2_ws/install/kr210_bringup/share/kr210_bringup/package.xml
