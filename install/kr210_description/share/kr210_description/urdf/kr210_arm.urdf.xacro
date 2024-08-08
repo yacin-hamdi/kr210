@@ -13,6 +13,12 @@
             <color rgba="0.75294 0.75294 0.75294 1"/>
         </material>
     </visual>
+    <collision>
+        <geometry>
+            <mesh filename="package://kr210_description/meshes/kr210l150/collision/base_link.stl"/>
+        </geometry>
+        <origin xyz="0 0 0" rpy="${-pi/2} 0 0"/>
+    </collision>
 </link>
 
 <link name="link_1">
@@ -22,6 +28,13 @@
         </geometry>
         <origin xyz="0 0 0" rpy="0 0 0"/>
     </visual>
+
+    <collision>
+        <geometry>
+            <mesh filename="package://kr210_description/meshes/kr210l150/collision/link_1.stl"/>
+        </geometry>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </collision>
 </link>
 
 <link name="link_2">
@@ -31,6 +44,13 @@
         </geometry>
         <origin xyz="0 0 0" rpy="-${pi/2} 0 0"/>
     </visual>
+
+    <collision>
+        <geometry>
+            <mesh filename="package://kr210_description/meshes/kr210l150/collision/link_2.stl"/>
+        </geometry>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </collision>
 </link>
 
 <link name="link_3">
@@ -40,6 +60,13 @@
         </geometry>
         <origin xyz="0 -0.184 0" rpy="${-pi/2} 0 0"/>
     </visual>
+
+    <collision>
+        <geometry>
+            <mesh filename="package://kr210_description/meshes/kr210l150/collision/link_3.stl"/>
+        </geometry>
+        <origin xyz="0 -0.184 0" rpy="0 0 0"/>
+    </collision>
 </link>
 
 <link name="link_4">
@@ -49,6 +76,13 @@
         </geometry>
         <origin xyz="0 0 0" rpy="${-pi/2} 0 0"/>
     </visual>
+
+    <collision>
+        <geometry>
+            <mesh filename="package://kr210_description/meshes/kr210l150/collision/link_4.stl"/>
+        </geometry>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </collision>
 </link>
 
 <link name="link_5">
@@ -58,6 +92,13 @@
         </geometry>
         <origin xyz="0 0 0" rpy="${-pi/2} 0 0"/>
     </visual>
+
+    <collision>
+        <geometry>
+            <mesh filename="package://kr210_description/meshes/kr210l150/collision/link_5.stl"/>
+        </geometry>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </collision>
 </link>
 
 <link name="link_6">
@@ -67,6 +108,13 @@
         </geometry>
         <origin xyz="0 0 0" rpy="0 0 0"/>
     </visual>
+
+    <collision>
+        <geometry>
+            <mesh filename="package://kr210_description/meshes/kr210l150/collision/link_6.stl"/>
+        </geometry>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </collision>
 </link>
 
 
