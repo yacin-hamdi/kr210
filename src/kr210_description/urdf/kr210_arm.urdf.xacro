@@ -9,15 +9,26 @@
 <xacro:property name="mass5" value="7"/>
 <xacro:property name="mass6" value="0.5"/>
 
+<xacro:macro name="box_inertia" params="m l w h xyz rpy">
+        <inertial>
+            <origin xyz="${xyz}" rpy="${rpy}"/>
+            <mass value="${m}" />
+            <inertia ixx="${(m/12) * (h*h + l*l)}" ixy="0" ixz="0"
+                     iyy="${(m/12) * (w*w + l*l)}" iyz="0"
+                     izz="${(m/12) * (w*w + h*h)}"/>
+        </inertial>
+    </xacro:macro>
 
 
 <link name="base_footprint"/>
+
+
 
 <link name="base_link">
     
     <visual>
         <geometry>
-            <mesh filename="package://kr210_description/meshes/kr210l150/collision/base_link.stl"/>
+            <mesh filename="file://$(find kr210_description)/meshes/kr210l150/visual/base_link.dae"/>
         </geometry>
         <origin xyz="0 0 0" rpy="-${pi/2} 0 0"/>
         <material name="">
@@ -27,149 +38,152 @@
 
     <collision>
         <geometry>
-            <mesh filename="package://kr210_description/meshes/kr210l150/collision/base_link.stl"/>
+            <mesh filename="file://$(find kr210_description)/meshes/kr210l150/collision/base_link.stl"/>
         </geometry>
         <origin xyz="0 0 0" rpy="${-pi/2} 0 0"/>
     </collision>
 
     <inertial>
         <mass value="${base_mass}"/>
-        <inertia ixx="60" ixy="0" ixz="0" iyy="70" iyz="0" izz="100"/>
+        <inertia ixx="60" iyy="0" izz="0" ixy="70" ixz="0" iyz="100" />
         <orgin xyz="0 0 0" rpy="0 0 0"/>
     </inertial>
-</link>
+</link> 
+
 
 <link name="link_1">
     <visual>
         <geometry>
-            <mesh filename="package://kr210_description/meshes/kr210l150/visual/link_1.dae"/>
+            <mesh filename="file://$(find kr210_description)/meshes/kr210l150/visual/link_1.dae"/>
         </geometry>
         <origin xyz="0 0 0" rpy="0 0 0"/>
     </visual>
 
     <collision>
         <geometry>
-            <mesh filename="package://kr210_description/meshes/kr210l150/collision/link_1.stl"/>
+            <mesh filename="file://$(find kr210_description)/meshes/kr210l150/collision/link_1.stl"/>
         </geometry>
         <origin xyz="0 0 0" rpy="0 0 0"/>
     </collision>
 
-    <!-- <inertial>
+    <inertial>
         <mass value="${mass1}"/>
         <inertia ixx="30" ixy="0" ixz="0" iyy="50" iyz="0" izz="50"/>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-    </inertial> -->
+        <origin xyz="0 0 0.4" rpy="0 0 0"/>
+    </inertial>
 </link>
 
 <link name="link_2">
     <visual>
         <geometry>
-            <mesh filename="package://kr210_description/meshes/kr210l150/visual/link_2.dae"/>
+            <mesh filename="file://$(find kr210_description)/meshes/kr210l150/visual/link_2.dae"/>
         </geometry>
         <origin xyz="0 0 0" rpy="-${pi/2} 0 0"/>
     </visual>
 
     <collision>
         <geometry>
-            <mesh filename="package://kr210_description/meshes/kr210l150/collision/link_2.stl"/>
+            <mesh filename="file://$(find kr210_description)/meshes/kr210l150/collision/link_2.stl"/>
         </geometry>
         <origin xyz="0 0 0" rpy="0 0 0"/>
     </collision>
 
-    <!-- <inertial>
+    <inertial>
         <mass value="${mass2}"/>
         <inertia ixx="40" ixy="0" ixz="0" iyy="40" iyz="0" izz="10"/>
         <origin xyz="0 0 0" rpy="0 0 0"/>
-    </inertial> -->
+    </inertial>
 </link>
 
 <link name="link_3">
     <visual>
         <geometry>
-            <mesh filename="package://kr210_description/meshes/kr210l150/visual/link_3.dae"/>
+            <mesh filename="file://$(find kr210_description)/meshes/kr210l150/visual/link_3.dae"/>
         </geometry>
         <origin xyz="0 -0.184 0" rpy="${-pi/2} 0 0"/>
     </visual>
 
     <collision>
         <geometry>
-            <mesh filename="package://kr210_description/meshes/kr210l150/collision/link_3.stl"/>
+            <mesh filename="file://$(find kr210_description)/meshes/kr210l150/collision/link_3.stl"/>
         </geometry>
         <origin xyz="0 -0.184 0" rpy="0 0 0"/>
     </collision>
 
-    <!-- <inertial>
+    <inertial>
         <mass value="${mass3}"/>
         <inertia ixx="1" ixy="0" ixz="0" iyy="10" iyz="0" izz="10"/>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-    </inertial> -->
+        <origin xyz="0.18842 0.18344 -0.042799" rpy="0 0 0"/>
+    </inertial>
 </link>
 
 <link name="link_4">
     <visual>
         <geometry>
-            <mesh filename="package://kr210_description/meshes/kr210l150/visual/link_4.dae"/>
+            <mesh filename="file://$(find kr210_description)/meshes/kr210l150/visual/link_4.dae"/>
         </geometry>
         <origin xyz="0 0 0" rpy="${-pi/2} 0 0"/>
     </visual>
 
     <collision>
         <geometry>
-            <mesh filename="package://kr210_description/meshes/kr210l150/collision/link_4.stl"/>
+            <mesh filename="file://$(find kr210_description)/meshes/kr210l150/collision/link_4.stl"/>
         </geometry>
         <origin xyz="0 0 0" rpy="0 0 0"/>
     </collision>
 
-    <!-- <inertial>
+    <inertial>
         <mass value="${mass4}"/>
         <inertia ixx="0.18" ixy="0" ixz="0" iyy="0.55" iyz="0" izz="0.64"/>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-    </inertial> -->
+        <origin xyz="0.27146 -0.007326 0" rpy="0 0 0"/>
+    </inertial>
 </link>
 
 <link name="link_5">
     <visual>
         <geometry>
-            <mesh filename="package://kr210_description/meshes/kr210l150/visual/link_5.dae"/>
+            <mesh filename="file://$(find kr210_description)/meshes/kr210l150/visual/link_5.dae"/>
         </geometry>
         <origin xyz="0 0 0" rpy="${-pi/2} 0 0"/>
     </visual>
 
     <collision>
         <geometry>
-            <mesh filename="package://kr210_description/meshes/kr210l150/collision/link_5.stl"/>
+            <mesh filename="file://$(find kr210_description)/meshes/kr210l150/collision/link_5.stl"/>
         </geometry>
         <origin xyz="0 0 0" rpy="0 0 0"/>
     </collision>
 
-    <!-- <inertial>
+    <inertial>
         <mass value="${mass5}"/>
         <inertia ixx="0.04" ixy="0" ixz="0" iyy="0.068" iyz="0" izz="0.068"/>
         <origin xyz="0 0 0" rpy="0 0 0"/>
-    </inertial> -->
+    </inertial>
 </link>
 
 <link name="link_6">
     <visual>
         <geometry>
-            <mesh filename="package://kr210_description/meshes/kr210l150/visual/link_6.dae"/>
+            <mesh filename="file://$(find kr210_description)/meshes/kr210l150/visual/link_6.dae"/>
         </geometry>
         <origin xyz="0 0 0" rpy="0 0 0"/>
     </visual>
 
     <collision>
         <geometry>
-            <mesh filename="package://kr210_description/meshes/kr210l150/collision/link_6.stl"/>
+            <mesh filename="file://$(find kr210_description)/meshes/kr210l150/collision/link_6.stl"/>
         </geometry>
         <origin xyz="0 0 0" rpy="0 0 0"/>
     </collision>
 
-    <!-- <inertial>
+    <inertial>
         <mass value="${mass6}"/>
         <inertia ixx="0.004" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
         <origin xyz="0 0 0" rpy="0 0 0"/>
-    </inertial> -->
+    </inertial>
 </link>
+
+
 
 
 <joint name="fixed_base_joint" type="fixed">
@@ -184,6 +198,7 @@
     <origin xyz="0 0 0.33" rpy="0 0 0"/>
     <axis xyz="0 0 1"/>
     <limit lower="${-185.0 * (pi / 180.0)}" upper="${185.0 * (pi / 180.0)}" effort="300" velocity="${123.0 * (pi / 180.0)}"/>
+    <dynamics friction="1000" damping="1000"/>
 </joint>
 
 <joint name="joint_2" type="revolute">
@@ -192,6 +207,7 @@
     <origin xyz="0.35 0 0.42" rpy="0 0 0"/>
     <axis xyz="0 1 0"/>
     <limit lower="${-45*pi/180}" upper="${85*pi/180}" effort="300" velocity="${115*pi/180}"/>
+    <dynamics friction="1000" damping="1000"/>
 </joint>
 
 <joint name="joint_3" type="revolute">
@@ -200,6 +216,7 @@
     <origin xyz="0 0 1.25" rpy="0 0 0"/>
     <axis xyz="0 1 0"/>
     <limit lower="${-210*pi/180}" upper="${65*pi/180}" effort="300" velocity="${112 * pi/180}"/>
+    <dynamics friction="1000" damping="1000"/>
 </joint>
 
 <joint name="joint_4" type="revolute">
@@ -208,6 +225,7 @@
     <origin xyz="0.96 0 -0.054" rpy="0 0 0"/>
     <axis xyz="1 0 0"/>
     <limit lower="${-125 * pi/180}" upper="${125*pi/180}" effort="300" velocity="${179*pi/180}"/>
+    <dynamics friction="1000" damping="1000"/>
 </joint>
 
 <joint name="joint_5" type="revolute">
@@ -216,6 +234,7 @@
     <origin xyz="0.54 0 0" rpy="0 0 0"/>
     <axis xyz="0 1 0"/>
     <limit lower="${-125 * pi/180}" upper="${125*pi/180}" effort="300" velocity="${172*pi/180}"/>
+    <dynamics friction="1000" damping="1000"/>
 </joint>
 
 <joint name="joint_6" type="revolute">
@@ -224,6 +243,7 @@
     <origin xyz="0.193 0 0" rpy="0 0 0"/>
     <axis xyz="1 0 0"/>
     <limit lower="${-350*pi/180}" upper="${350*pi/180}" effort="300" velocity="${219*pi/180}"/>
-</joint>
+    <dynamics friction="1000" damping="1000"/>
+</joint> 
 
 </robot>

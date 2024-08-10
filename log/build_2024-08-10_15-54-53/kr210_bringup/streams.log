@@ -1,0 +1,42 @@
+[0.015s] Invoking command in '/home/moose/ros2_ws/build/kr210_bringup': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/moose/ros2_ws/src/kr210_bringup -DCMAKE_INSTALL_PREFIX=/home/moose/ros2_ws/install/kr210_bringup
+[0.194s] -- The C compiler identification is GNU 11.4.0
+[0.345s] -- The CXX compiler identification is GNU 11.4.0
+[0.360s] -- Detecting C compiler ABI info
+[0.448s] -- Detecting C compiler ABI info - done
+[0.456s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.457s] -- Detecting C compile features
+[0.457s] -- Detecting C compile features - done
+[0.462s] -- Detecting CXX compiler ABI info
+[0.558s] -- Detecting CXX compiler ABI info - done
+[0.567s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.567s] -- Detecting CXX compile features
+[0.568s] -- Detecting CXX compile features - done
+[0.574s] -- Found ament_cmake: 1.3.8 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.769s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.979s] -- Configuring done
+[0.982s] -- Generating done
+[0.983s] -- Build files have been written to: /home/moose/ros2_ws/build/kr210_bringup
+[0.989s] Invoked command in '/home/moose/ros2_ws/build/kr210_bringup' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/moose/ros2_ws/src/kr210_bringup -DCMAKE_INSTALL_PREFIX=/home/moose/ros2_ws/install/kr210_bringup
+[0.990s] Invoking command in '/home/moose/ros2_ws/build/kr210_bringup': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/moose/ros2_ws/build/kr210_bringup -- -j4 -l4
+[1.035s] Invoked command in '/home/moose/ros2_ws/build/kr210_bringup' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/moose/ros2_ws/build/kr210_bringup -- -j4 -l4
+[1.071s] Invoking command in '/home/moose/ros2_ws/build/kr210_bringup': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/moose/ros2_ws/build/kr210_bringup
+[1.080s] -- Install configuration: ""
+[1.080s] -- Installing: /home/moose/ros2_ws/install/kr210_bringup/share/kr210_bringup/launch
+[1.080s] -- Installing: /home/moose/ros2_ws/install/kr210_bringup/share/kr210_bringup/launch/kr210_rviz.launch.xml
+[1.081s] -- Installing: /home/moose/ros2_ws/install/kr210_bringup/share/kr210_bringup/launch/kr210_gazebo.launch.xml
+[1.082s] -- Installing: /home/moose/ros2_ws/install/kr210_bringup/share/ament_index/resource_index/package_run_dependencies/kr210_bringup
+[1.082s] -- Installing: /home/moose/ros2_ws/install/kr210_bringup/share/ament_index/resource_index/parent_prefix_path/kr210_bringup
+[1.082s] -- Installing: /home/moose/ros2_ws/install/kr210_bringup/share/kr210_bringup/environment/ament_prefix_path.sh
+[1.082s] -- Installing: /home/moose/ros2_ws/install/kr210_bringup/share/kr210_bringup/environment/ament_prefix_path.dsv
+[1.083s] -- Installing: /home/moose/ros2_ws/install/kr210_bringup/share/kr210_bringup/environment/path.sh
+[1.083s] -- Installing: /home/moose/ros2_ws/install/kr210_bringup/share/kr210_bringup/environment/path.dsv
+[1.084s] -- Installing: /home/moose/ros2_ws/install/kr210_bringup/share/kr210_bringup/local_setup.bash
+[1.084s] -- Installing: /home/moose/ros2_ws/install/kr210_bringup/share/kr210_bringup/local_setup.sh
+[1.085s] -- Installing: /home/moose/ros2_ws/install/kr210_bringup/share/kr210_bringup/local_setup.zsh
+[1.085s] -- Installing: /home/moose/ros2_ws/install/kr210_bringup/share/kr210_bringup/local_setup.dsv
+[1.085s] -- Installing: /home/moose/ros2_ws/install/kr210_bringup/share/kr210_bringup/package.dsv
+[1.085s] -- Installing: /home/moose/ros2_ws/install/kr210_bringup/share/ament_index/resource_index/packages/kr210_bringup
+[1.085s] -- Installing: /home/moose/ros2_ws/install/kr210_bringup/share/kr210_bringup/cmake/kr210_bringupConfig.cmake
+[1.086s] -- Installing: /home/moose/ros2_ws/install/kr210_bringup/share/kr210_bringup/cmake/kr210_bringupConfig-version.cmake
+[1.086s] -- Installing: /home/moose/ros2_ws/install/kr210_bringup/share/kr210_bringup/package.xml
+[1.089s] Invoked command in '/home/moose/ros2_ws/build/kr210_bringup' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/moose/ros2_ws/build/kr210_bringup
