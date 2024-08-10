@@ -9,31 +9,20 @@
 <xacro:property name="mass5" value="7"/>
 <xacro:property name="mass6" value="0.5"/>
 
-<xacro:macro name="box_inertia" params="m l w h xyz rpy">
-        <inertial>
-            <origin xyz="${xyz}" rpy="${rpy}"/>
-            <mass value="${m}" />
-            <inertia ixx="${(m/12) * (h*h + l*l)}" ixy="0" ixz="0"
-                     iyy="${(m/12) * (w*w + l*l)}" iyz="0"
-                     izz="${(m/12) * (w*w + h*h)}"/>
-        </inertial>
-    </xacro:macro>
+
 
 
 <link name="base_footprint"/>
 
 
 
+
 <link name="base_link">
-    
     <visual>
         <geometry>
             <mesh filename="file://$(find kr210_description)/meshes/kr210l150/visual/base_link.dae"/>
         </geometry>
         <origin xyz="0 0 0" rpy="-${pi/2} 0 0"/>
-        <material name="">
-            <color rgba="0.75294 0.75294 0.75294 1"/>
-        </material>
     </visual>
 
     <collision>
@@ -46,9 +35,9 @@
     <inertial>
         <mass value="${base_mass}"/>
         <inertia ixx="60" iyy="0" izz="0" ixy="70" ixz="0" iyz="100" />
-        <orgin xyz="0 0 0" rpy="0 0 0"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
     </inertial>
-</link> 
+</link>
 
 
 <link name="link_1">
@@ -192,7 +181,47 @@
     </visual>
 </link>
 
+<link name="right_finger_link">
+    <visual>
+        <geometry>
+            <mesh filename="file://$(find kr210_description)/meshes/gripper/finger_right.dae"/>
+        </geometry>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </visual>
+</link>
 
+<link name="left_finger_link">
+    <visual>
+        <geometry>
+            <mesh filename="file://$(find kr210_description)/meshes/gripper/finger_left.dae"/>
+        </geometry>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </visual>
+</link>
+
+<joint name="gripper_joint" type="fixed">
+    <parent link="link_6"/>
+    <child link="gripper_link"/>
+    <origin xyz="0.11 0 0" rpy="0 0 0"/>
+</joint>
+
+<joint name="gripper_right_finger_joint" type="prismatic">
+    <parent link="gripper_link"/>
+    <child link="right_finger_link"/>
+    <origin xyz="0.15 -0.0725 0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="100" lower="-0.01" upper="0.06" velocity="0.05"/>
+    <dynamics damping="0.7"/>
+</joint>
+
+<joint name="gripper_left_finger_joint" type="prismatic">
+    <parent link="gripper_link"/>
+    <child link="left_finger_link"/>
+    <origin xyz="0.15 0.0725 0" rpy="0 0 0"/>
+    <axis xyz="0 -1 0"/>
+    <limit effort="100" lower="-0.01" upper="0.06" velocity="0.05"/>
+    <dynamics damping="0.7"/>
+</joint>
 
 
 
@@ -201,6 +230,7 @@
     <parent link="base_footprint"/>
     <child link="base_link"/>
     <origin xyz="0 0 0" rpy="0 0 0"/>
+    
 </joint>
 
 <joint name="joint_1" type="revolute">
@@ -257,10 +287,8 @@
     <dynamics friction="1000" damping="1000"/>
 </joint> 
 
-<joint name="gripper_joint">
-    <parent link="link_6"/>
-    <child link="gripper_link"/>
-    <orgin xyz="0 0 0" rpy="0 0 0"/>
-</joint>
+
+
+
 
 </robot>

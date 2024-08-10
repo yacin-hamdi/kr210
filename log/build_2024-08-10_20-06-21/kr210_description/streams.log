@@ -1,0 +1,49 @@
+[0.016s] Invoking command in '/home/moose/ros2_ws/build/kr210_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/moose/ros2_ws/build/kr210_description -- -j4 -l4
+[0.059s] Invoked command in '/home/moose/ros2_ws/build/kr210_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/moose/ros2_ws/build/kr210_description -- -j4 -l4
+[0.091s] Invoking command in '/home/moose/ros2_ws/build/kr210_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/moose/ros2_ws/build/kr210_description
+[0.102s] -- Install configuration: ""
+[0.103s] -- Up-to-date: /home/moose/ros2_ws/install/kr210_description/share/kr210_description/urdf
+[0.103s] -- Up-to-date: /home/moose/ros2_ws/install/kr210_description/share/kr210_description/urdf/kr210_arm_gazebo.urdf.xacro
+[0.103s] -- Installing: /home/moose/ros2_ws/install/kr210_description/share/kr210_description/urdf/kr210_arm.urdf.xacro
+[0.103s] -- Up-to-date: /home/moose/ros2_ws/install/kr210_description/share/kr210_description/urdf/kr210.urdf.xacro
+[0.103s] -- Up-to-date: /home/moose/ros2_ws/install/kr210_description/share/kr210_description/meshes
+[0.103s] -- Up-to-date: /home/moose/ros2_ws/install/kr210_description/share/kr210_description/meshes/gripper
+[0.103s] -- Up-to-date: /home/moose/ros2_ws/install/kr210_description/share/kr210_description/meshes/gripper/gripper_base.dae
+[0.104s] -- Up-to-date: /home/moose/ros2_ws/install/kr210_description/share/kr210_description/meshes/gripper/finger_right_collision.dae
+[0.104s] -- Up-to-date: /home/moose/ros2_ws/install/kr210_description/share/kr210_description/meshes/gripper/finger_left.dae
+[0.104s] -- Up-to-date: /home/moose/ros2_ws/install/kr210_description/share/kr210_description/meshes/gripper/finger_left_collision.dae
+[0.104s] -- Up-to-date: /home/moose/ros2_ws/install/kr210_description/share/kr210_description/meshes/gripper/finger_right.dae
+[0.104s] -- Up-to-date: /home/moose/ros2_ws/install/kr210_description/share/kr210_description/meshes/kr210l150
+[0.104s] -- Up-to-date: /home/moose/ros2_ws/install/kr210_description/share/kr210_description/meshes/kr210l150/README.md
+[0.104s] -- Up-to-date: /home/moose/ros2_ws/install/kr210_description/share/kr210_description/meshes/kr210l150/collision
+[0.104s] -- Up-to-date: /home/moose/ros2_ws/install/kr210_description/share/kr210_description/meshes/kr210l150/collision/link_2.stl
+[0.104s] -- Up-to-date: /home/moose/ros2_ws/install/kr210_description/share/kr210_description/meshes/kr210l150/collision/base_link.stl
+[0.104s] -- Up-to-date: /home/moose/ros2_ws/install/kr210_description/share/kr210_description/meshes/kr210l150/collision/link_3.stl
+[0.105s] -- Up-to-date: /home/moose/ros2_ws/install/kr210_description/share/kr210_description/meshes/kr210l150/collision/link_1.stl
+[0.105s] -- Up-to-date: /home/moose/ros2_ws/install/kr210_description/share/kr210_description/meshes/kr210l150/collision/link_6.stl
+[0.105s] -- Up-to-date: /home/moose/ros2_ws/install/kr210_description/share/kr210_description/meshes/kr210l150/collision/link_5.stl
+[0.105s] -- Up-to-date: /home/moose/ros2_ws/install/kr210_description/share/kr210_description/meshes/kr210l150/collision/link_4.stl
+[0.106s] -- Up-to-date: /home/moose/ros2_ws/install/kr210_description/share/kr210_description/meshes/kr210l150/visual
+[0.106s] -- Up-to-date: /home/moose/ros2_ws/install/kr210_description/share/kr210_description/meshes/kr210l150/visual/link_5.dae
+[0.106s] -- Up-to-date: /home/moose/ros2_ws/install/kr210_description/share/kr210_description/meshes/kr210l150/visual/link_6.dae
+[0.106s] -- Up-to-date: /home/moose/ros2_ws/install/kr210_description/share/kr210_description/meshes/kr210l150/visual/base_link.dae
+[0.106s] -- Up-to-date: /home/moose/ros2_ws/install/kr210_description/share/kr210_description/meshes/kr210l150/visual/link_1.dae
+[0.106s] -- Up-to-date: /home/moose/ros2_ws/install/kr210_description/share/kr210_description/meshes/kr210l150/visual/link_3.dae
+[0.107s] -- Up-to-date: /home/moose/ros2_ws/install/kr210_description/share/kr210_description/meshes/kr210l150/visual/link_4.dae
+[0.107s] -- Up-to-date: /home/moose/ros2_ws/install/kr210_description/share/kr210_description/meshes/kr210l150/visual/link_2.dae
+[0.107s] -- Up-to-date: /home/moose/ros2_ws/install/kr210_description/share/ament_index/resource_index/package_run_dependencies/kr210_description
+[0.107s] -- Up-to-date: /home/moose/ros2_ws/install/kr210_description/share/ament_index/resource_index/parent_prefix_path/kr210_description
+[0.108s] -- Up-to-date: /home/moose/ros2_ws/install/kr210_description/share/kr210_description/environment/ament_prefix_path.sh
+[0.108s] -- Up-to-date: /home/moose/ros2_ws/install/kr210_description/share/kr210_description/environment/ament_prefix_path.dsv
+[0.108s] -- Up-to-date: /home/moose/ros2_ws/install/kr210_description/share/kr210_description/environment/path.sh
+[0.108s] -- Up-to-date: /home/moose/ros2_ws/install/kr210_description/share/kr210_description/environment/path.dsv
+[0.109s] -- Up-to-date: /home/moose/ros2_ws/install/kr210_description/share/kr210_description/local_setup.bash
+[0.109s] -- Up-to-date: /home/moose/ros2_ws/install/kr210_description/share/kr210_description/local_setup.sh
+[0.109s] -- Up-to-date: /home/moose/ros2_ws/install/kr210_description/share/kr210_description/local_setup.zsh
+[0.109s] -- Up-to-date: /home/moose/ros2_ws/install/kr210_description/share/kr210_description/local_setup.dsv
+[0.109s] -- Installing: /home/moose/ros2_ws/install/kr210_description/share/kr210_description/package.dsv
+[0.110s] -- Up-to-date: /home/moose/ros2_ws/install/kr210_description/share/ament_index/resource_index/packages/kr210_description
+[0.110s] -- Up-to-date: /home/moose/ros2_ws/install/kr210_description/share/kr210_description/cmake/kr210_descriptionConfig.cmake
+[0.110s] -- Up-to-date: /home/moose/ros2_ws/install/kr210_description/share/kr210_description/cmake/kr210_descriptionConfig-version.cmake
+[0.110s] -- Up-to-date: /home/moose/ros2_ws/install/kr210_description/share/kr210_description/package.xml
+[0.123s] Invoked command in '/home/moose/ros2_ws/build/kr210_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/moose/ros2_ws/build/kr210_description
