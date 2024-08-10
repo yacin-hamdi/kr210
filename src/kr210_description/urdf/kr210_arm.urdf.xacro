@@ -183,6 +183,17 @@
     </inertial>
 </link>
 
+<link name="gripper_link">
+    <visual>
+        <geometry>
+            <mesh filename="file://$(find kr210_description)/meshes/gripper/gripper_base.dae"/>
+        </geometry>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </visual>
+</link>
+
+
+
 
 
 
@@ -245,5 +256,11 @@
     <limit lower="${-350*pi/180}" upper="${350*pi/180}" effort="300" velocity="${219*pi/180}"/>
     <dynamics friction="1000" damping="1000"/>
 </joint> 
+
+<joint name="gripper_joint">
+    <parent link="link_6"/>
+    <child link="gripper_link"/>
+    <orgin xyz="0 0 0" rpy="0 0 0"/>
+</joint>
 
 </robot>
