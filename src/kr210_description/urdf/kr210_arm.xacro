@@ -191,7 +191,7 @@
     <origin xyz="0 0 0.33" rpy="0 0 0"/>
     <axis xyz="0 0 1"/>
     <limit lower="${-185.0 * (pi / 180.0)}" upper="${185.0 * (pi / 180.0)}" effort="300" velocity="${123.0 * (pi / 180.0)}"/>
-    <!-- <dynamics friction="1000" damping="1000"/> -->
+    <dynamics friction="1000" damping="1000"/>
 </joint>
 
 <joint name="joint_2" type="revolute">
@@ -200,7 +200,7 @@
     <origin xyz="0.35 0 0.42" rpy="0 0 0"/>
     <axis xyz="0 1 0"/>
     <limit lower="${-45*pi/180}" upper="${85*pi/180}" effort="300" velocity="${115*pi/180}"/>
-    <!-- <dynamics friction="1000" damping="1000"/> -->
+    <dynamics friction="1000" damping="1000"/>
 </joint>
 
 <joint name="joint_3" type="revolute">
@@ -209,7 +209,7 @@
     <origin xyz="0 0 1.25" rpy="0 0 0"/>
     <axis xyz="0 1 0"/>
     <limit lower="${-210*pi/180}" upper="${65*pi/180}" effort="300" velocity="${112 * pi/180}"/>
-    <!-- <dynamics friction="1000" damping="1000"/> -->
+    <dynamics friction="1000" damping="1000"/>
 </joint>
 
 <joint name="joint_4" type="revolute">
@@ -218,7 +218,7 @@
     <origin xyz="0.96 0 -0.054" rpy="0 0 0"/>
     <axis xyz="1 0 0"/>
     <limit lower="${-125 * pi/180}" upper="${125*pi/180}" effort="300" velocity="${179*pi/180}"/>
-    <!-- <dynamics friction="1000" damping="1000"/> -->
+    <dynamics friction="1000" damping="1000"/>
 </joint>
 
 <joint name="joint_5" type="revolute">
@@ -227,7 +227,7 @@
     <origin xyz="0.54 0 0" rpy="0 0 0"/>
     <axis xyz="0 1 0"/>
     <limit lower="${-125 * pi/180}" upper="${125*pi/180}" effort="300" velocity="${172*pi/180}"/>
-    <!-- <dynamics friction="1000" damping="1000"/> -->
+    <dynamics friction="1000" damping="1000"/>
 </joint>
 
 <joint name="joint_6" type="revolute">
@@ -236,74 +236,9 @@
     <origin xyz="0.193 0 0" rpy="0 0 0"/>
     <axis xyz="1 0 0"/>
     <limit lower="${-350*pi/180}" upper="${350*pi/180}" effort="300" velocity="${219*pi/180}"/>
-    <!-- <dynamics friction="1000" damping="1000"/> -->
+    <dynamics friction="1000" damping="1000"/>
 </joint> 
 
-<transmission name="trans_1">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name="joint_1">
-        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-    </joint>
-    <actuator name="motor1">
-        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-        <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-</transmission>
-
-<transmission name="trans_2">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name="joint_2">
-        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-    </joint>
-    <actuator name="motor2">
-        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-        <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-</transmission>
-
-<transmission name="trans_3">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name="joint_3">
-        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-    </joint>
-    <actuator name="motor3">
-        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-        <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-</transmission>
-
-<transmission name="trans_4">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name="joint_4">
-        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-    </joint>
-    <actuator name="motor4">
-        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-        <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-</transmission>
-
-<transmission name="trans_5">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name="joint_5">
-        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-    </joint>
-    <actuator name="motor5">
-        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-        <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-</transmission>
-
-<transmission name="trans_6">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name="joint_6">
-        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-    </joint>
-    <actuator name="motor6">
-        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-        <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-</transmission>
 
 
 

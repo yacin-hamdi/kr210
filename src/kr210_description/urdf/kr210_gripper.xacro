@@ -92,27 +92,7 @@
         <dynamics damping="0.7"/>
     </joint>
 
-    <transmission name="trans_7">
-        <type>transmission_interface/SimpleTransmission</type>
-        <joint name="gripper_right_finger_joint">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-        </joint>
-        <actuator name="motor_7">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-            <mechanicalReduction>1</mechanicalReduction>
-        </actuator>
-    </transmission>
-
-    <transmission name="trans_8">
-        <type>transmission_interface/SimpleTransmission</type>
-        <joint name="gripper_left_finger_joint">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-        </joint>
-        <actuator name="motor_8">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-            <mechanicalReduction>1</mechanicalReduction>
-        </actuator>
-    </transmission>
+    
 
 
 </robot>
