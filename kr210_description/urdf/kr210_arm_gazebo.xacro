@@ -36,4 +36,12 @@
         <mu2>0.2</mu2>
     </gazebo>
 
+     <gazebo>
+        <plugin filename="ign_ros2_control-system" name="ign_ros2_control::IgnitionROS2ControlPlugin">
+            <parameters>$(find kr210_controller)/config/ros2_controllers.yaml</parameters>
+        </plugin>
+        
+
+    </gazebo>
+
 </robot>

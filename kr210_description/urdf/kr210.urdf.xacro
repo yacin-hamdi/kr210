@@ -5,5 +5,6 @@
     <xacro:include filename="kr210_trans.xacro"/>
     <xacro:include filename="kr210_arm_gazebo.xacro"/>
     <xacro:include filename="kr210_gripper_gazebo.xacro"/>
+    <xacro:include filename="kr210_ros2_control.xacro"/>
 
 </robot>
