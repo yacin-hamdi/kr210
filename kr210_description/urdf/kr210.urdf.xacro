@@ -2,9 +2,9 @@
 <robot name="kuka" xmlns:xacro="http://www.ros.org/wiki/xacro">
     <xacro:include filename="kr210_arm.xacro"/>
     <xacro:include filename="kr210_gripper.xacro"/>
-    <xacro:include filename="kr210_trans.xacro"/>
+    <!-- <xacro:include filename="kr210_trans.xacro"/> -->
     <xacro:include filename="kr210_arm_gazebo.xacro"/>
-    <xacro:include filename="kr210_gripper_gazebo.xacro"/>
+    <!-- <xacro:include filename="kr210_gripper_gazebo.xacro"/> -->
     <xacro:include filename="kr210_ros2_control.xacro"/>
 
 </robot>

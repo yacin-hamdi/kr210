@@ -5,10 +5,12 @@ controller_manager:
 
     arm_controller:
       type: joint_trajectory_controller/JointTrajectoryController
+      # type: forward_command_controller/ForwardCommandController
 
 
     gripper_controller:
       type: joint_trajectory_controller/JointTrajectoryController
+      # type: forward_command_controller/ForwardCommandController
 
 
     joint_state_broadcaster:
@@ -23,19 +25,26 @@ arm_controller:
       - joint_4
       - joint_5
       - joint_6
+
+    # interface_name: position
     command_interfaces:
       - position
     state_interfaces:
       - position
-      - velocity
+    open_loop_control: true
+    allow_integration_in_goal_trajectories: true
       
 gripper_controller:
   ros__parameters:
     joints:
       - gripper_left_finger_joint
       - gripper_right_finger_joint
+
+    # interface_name: position
+
     command_interfaces:
       - position
     state_interfaces:
       - position
-      - velocity
+    open_loop_control: true
+    allow_integration_in_goal_trajectories: true

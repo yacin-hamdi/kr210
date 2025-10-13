@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <robot>
-    <gazebo reference="base_link">
+    <!-- <gazebo reference="base_link">
         <material>Gazebo/Grey</material>
         <mu1>2</mu1>
         <mu2>2</mu2>
@@ -34,7 +34,7 @@
     <gazebo reference="link_6">
         <mu1>0.2</mu1>
         <mu2>0.2</mu2>
-    </gazebo>
+    </gazebo> -->
 
      <gazebo>
         <plugin filename="ign_ros2_control-system" name="ign_ros2_control::IgnitionROS2ControlPlugin">
@@ -43,5 +43,7 @@
         
 
     </gazebo>
+
+    
 
 </robot>

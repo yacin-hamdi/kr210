@@ -6,6 +6,7 @@
         <hardware>
             <plugin>ign_ros2_control/IgnitionSystem</plugin>
         </hardware>
+
         <joint name="joint_1">
             <command_interface name="position"/>
             <state_interface name="position">
