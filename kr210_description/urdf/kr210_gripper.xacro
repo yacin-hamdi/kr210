@@ -1,12 +1,17 @@
 <?xml version="1.0"?>
 <robot>
 
+    <material name="grey">
+        <color rgba="0.4 0.4 0.4 1"/>
+    </material>
+
     <link name="gripper_link">
         <visual>
             <geometry>
                 <mesh filename="file://$(find kr210_description)/meshes/gripper/gripper_base.dae"/>
             </geometry>
             <origin xyz="0 0 0" rpy="0 0 0"/>
+            <material name="grey"/>
         </visual>
 
         <collision>
@@ -29,6 +34,7 @@
                 <mesh filename="file://$(find kr210_description)/meshes/gripper/finger_right.dae"/>
             </geometry>
             <origin xyz="0 0 0" rpy="0 0 0"/>
+            <material name="grey"/>
         </visual>
 
         <collision>
@@ -52,6 +58,7 @@
                 <mesh filename="file://$(find kr210_description)/meshes/gripper/finger_left.dae"/>
             </geometry>
             <origin xyz="0 0 0" rpy="0 0 0"/>
+            <material name="grey"/>
         </visual>
 
         <collision>
