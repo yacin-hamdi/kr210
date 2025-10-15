@@ -3,6 +3,7 @@
 #include <moveit/move_group_interface/move_group_interface.h>
 #include <tf2/utils.h>
 #include <geometry_msgs/msg/pose_stamped.hpp>
+#include <example_interfaces/msg/bool.hpp>
 
 
 class CommanderMoveIt
@@ -23,8 +24,9 @@ class CommanderMoveIt
             gripper_->setMaxVelocityScalingFactor(1.0);
             gripper_->setMaxAccelerationScalingFactor(1.0);
 
-            gotToNamedTarget("pose_1");
-            gotToNamedTarget("home");
+            gripper_sub_ = node_->create_subscription<example_interfaces::msg::Bool>("open_gripper", 10, 
+                std::bind(&CommanderMoveIt::openGripperCallback, this, std::placeholders::_1)
+            );
             
         }
 
@@ -68,7 +70,20 @@ class CommanderMoveIt
 
     std::shared_ptr<moveit::planning_interface::MoveGroupInterface> arm_;
     std::shared_ptr<moveit::planning_interface::MoveGroupInterface> gripper_;
+    rclcpp::Subscription<example_interfaces::msg::Bool>::SharedPtr gripper_sub_;
     std::shared_ptr<rclcpp::Node> node_;
+
+    void openGripper(){
+        gripper_->setStartStateToCurrentState();
+        gripper_->setNamedTarget("gripper_open");
+        planAndExecute(gripper_);
+    }
+
+    void closeGripper(){
+        gripper_->setStartStateToCurrentState();
+        gripper_->setNamedTarget("gripper_closed");
+        planAndExecute(gripper_);
+    }
     
     void planAndExecute(const std::shared_ptr<moveit::planning_interface::MoveGroupInterface> &interface)
     {
@@ -76,6 +91,15 @@ class CommanderMoveIt
         bool success = interface->plan(plan) == moveit::core::MoveItErrorCode::SUCCESS;
         if(success){
             interface->execute(plan);
+        }
+    }
+
+    void openGripperCallback(const example_interfaces::msg::Bool &msg)
+    {
+        if (msg.data){
+            openGripper();
+        }else{
+            closeGripper();
         }
     }
 

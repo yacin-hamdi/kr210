@@ -10,7 +10,8 @@
                 "/usr/include/**",
                 "/opt/ros/humble/include/rclcpp",
                 "/opt/ros/humble/include/rcl",
-                "/opt/ros/humble/include/moveit/move_group_interface/move_group_interface.h"
+                "/opt/ros/humble/include/moveit/move_group_interface/move_group_interface.h",
+                "/opt/ros/humble/include/example_interfaces"
             ],
             "name": "ROS",
             "intelliSenseMode": "gcc-x64",
