@@ -90,11 +90,11 @@ int main(int argc, char *argv[])
 
     moveit_msgs::msg::RobotTrajectory trajectory;
 
-    double fraction = arm.computeCartesianPath(waypoints, 0.01, trajectory);
+    // double fraction = arm.computeCartesianPath(waypoints, 0.01, trajectory);
 
-    if (fraction == 1){
-        arm.execute(trajectory);
-    }
+    // if (fraction == 1){
+    //     arm.execute(trajectory);
+    // }
 
 
     rclcpp::shutdown();

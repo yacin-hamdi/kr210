@@ -9,8 +9,8 @@
                 "/opt/ros/humble/include/**",
                 "/usr/include/**",
                 "/opt/ros/humble/include/rclcpp",
-                "/opt/ros/humble/include",
-                "/opt/ros/humble/include/srdfdom"
+                "/opt/ros/humble/include/rcl",
+                "/opt/ros/humble/include/moveit/move_group_interface/move_group_interface.h"
             ],
             "name": "ROS",
             "intelliSenseMode": "gcc-x64",

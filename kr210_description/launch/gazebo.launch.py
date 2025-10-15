@@ -24,7 +24,7 @@ def generate_launch_description():
 
     world_name_arg = DeclareLaunchArgument(
         name="world_name",
-        default_value="empty"
+        default_value="test"
     )
     world_name = LaunchConfiguration("world_name")
     robot_description = ParameterValue(Command(["xacro ", LaunchConfiguration("robot_description")]), value_type=str)
@@ -62,8 +62,8 @@ def generate_launch_description():
                 "gz_sim.launch.py"
             ])
         ),
-        # launch_arguments=[("gz_args", PythonExpression(["' -v 4 -r ", world_path, "'"]))]
-        launch_arguments=[("gz_args", PythonExpression(["' -v 4 -r ", "empty.sdf", "'"]))]
+        launch_arguments=[("gz_args", PythonExpression(["' -v 4 -r ", world_path, "'"]))]
+        # launch_arguments=[("gz_args", PythonExpression(["' -v 4 -r ", "empty.sdf", "'"]))]
     )
 
     gz_spawn_entity = Node(
