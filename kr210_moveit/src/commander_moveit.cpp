@@ -3,6 +3,7 @@
 #include <moveit/move_group_interface/move_group_interface.h>
 #include <tf2/utils.h>
 #include <geometry_msgs/msg/pose_stamped.hpp>
+#include <kr210_interfaces/msg/target_pose.hpp>
 #include <example_interfaces/msg/bool.hpp>
 
 
@@ -28,7 +29,7 @@ class CommanderMoveIt
                 std::bind(&CommanderMoveIt::openGripperCallback, this, std::placeholders::_1)
             );
 
-            target_pose_sub_ = node_->create_subscription<geometry_msgs::msg::Pose>("got_to_pose_target", 10, 
+            target_pose_sub_ = node_->create_subscription<kr210_interfaces::msg::TargetPose>("got_to_pose_target", 10, 
                 std::bind(&CommanderMoveIt::goToPoseTarget, this, std::placeholders::_1)  
             );
 
@@ -50,16 +51,18 @@ class CommanderMoveIt
             planAndExecute(arm_);
         }
 
-        void goToPoseTarget(const geometry_msgs::msg::Pose &msg)
+        void goToPoseTarget(const kr210_interfaces::msg::TargetPose &msg)
         {
             tf2::Quaternion q;
             // msg.orientation im gonna used it as roll, pitch, yaw for testing
-            q.setRPY(msg.orientation.x, msg.orientation.y, msg.orientation.z);
+            q.setRPY(msg.roll, msg.pitch, msg.yaw);
             q = q.normalize();
 
             geometry_msgs::msg::PoseStamped target_pose;
             target_pose.header.frame_id = "base_link";
-            target_pose.pose.position = msg.position;
+            target_pose.pose.position.x = msg.x;
+            target_pose.pose.position.y = msg.y;
+            target_pose.pose.position.z = msg.z;
             target_pose.pose.orientation.x = q.getX();
             target_pose.pose.orientation.y = q.getY();
             target_pose.pose.orientation.z = q.getZ();
@@ -93,7 +96,7 @@ class CommanderMoveIt
     std::shared_ptr<moveit::planning_interface::MoveGroupInterface> arm_;
     std::shared_ptr<moveit::planning_interface::MoveGroupInterface> gripper_;
     rclcpp::Subscription<example_interfaces::msg::Bool>::SharedPtr gripper_sub_;
-    rclcpp::Subscription<geometry_msgs::msg::Pose>::SharedPtr target_pose_sub_;
+    rclcpp::Subscription<kr210_interfaces::msg::TargetPose>::SharedPtr target_pose_sub_;
     std::shared_ptr<rclcpp::Node> node_;
 
     void openGripper(){
