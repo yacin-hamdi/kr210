@@ -29,11 +29,14 @@ class CommanderMoveIt
                 std::bind(&CommanderMoveIt::openGripperCallback, this, std::placeholders::_1)
             );
 
-            target_pose_sub_ = node_->create_subscription<kr210_interfaces::msg::TargetPose>("go_to_pose_target", 10, 
-                std::bind(&CommanderMoveIt::pickUp, this, std::placeholders::_1)  
+            pick_sub_ = node_->create_subscription<kr210_interfaces::msg::TargetPose>("pick_object", 10, 
+                std::bind(&CommanderMoveIt::pick, this, std::placeholders::_1)  
             );
 
-            // goToPoseTarget(1.99, 0.12, 0.92, 0.5, 0, 0);
+            place_sub_ = node_->create_subscription<kr210_interfaces::msg::TargetPose>("place_object", 10, 
+                std::bind(&CommanderMoveIt::place, this, std::placeholders::_1)  
+            );
+
             
         }
 
@@ -51,29 +54,13 @@ class CommanderMoveIt
             planAndExecute(arm_);
         }
 
-        void pickUp(const kr210_interfaces::msg::TargetPose &msg){
-
-            
-            goToPoseTarget(msg);
-            tf2::Quaternion q;
-            q.setRPY(msg.roll, msg.pitch, msg.yaw);
-            q = q.normalize();
+        void pick(const kr210_interfaces::msg::TargetPose &msg){
             std::vector<geometry_msgs::msg::Pose> waypoints;
-            geometry_msgs::msg::Pose pose1;
-            pose1.position.x = msg.x;
-            pose1.position.y = msg.y;
-            pose1.position.z = msg.z - 0.2;
-            pose1.orientation.x = q.getX();
-            pose1.orientation.y = q.getY();
-            pose1.orientation.z = q.getZ();
-            pose1.orientation.w = q.getW();
-            
-            waypoints.push_back(pose1);
 
-            geometry_msgs::msg::Pose pose2 = pose1;
-            pose2.position.x += 0.2;
-            waypoints.push_back(pose2);
-
+            geometry_msgs::msg::Pose pose = goToPoseTarget(msg);
+            closeGripper();
+            pose.position.z += 0.2;
+            waypoints.push_back(pose);
             moveit_msgs::msg::RobotTrajectory trajectory;
 
             double fraction = arm_->computeCartesianPath(waypoints, 0.01, 0.0, trajectory);
@@ -81,12 +68,19 @@ class CommanderMoveIt
             if (fraction == 1){
                 arm_->execute(trajectory);
             }
+            
+        }
 
-            closeGripper();
+        void place(const kr210_interfaces::msg::TargetPose &msg){
+            std::vector<geometry_msgs::msg::Pose> waypoints;
+
+            geometry_msgs::msg::Pose pose = goToPoseTarget(msg);
+            openGripper();
+            
         }
 
 
-        void goToPoseTarget(const kr210_interfaces::msg::TargetPose &msg)
+        geometry_msgs::msg::Pose goToPoseTarget(const kr210_interfaces::msg::TargetPose &msg)
         {
            tf2::Quaternion q;
             q.setRPY(msg.roll, msg.pitch, msg.yaw);
@@ -105,6 +99,25 @@ class CommanderMoveIt
             arm_->setStartStateToCurrentState();
             arm_->setPoseTarget(target_pose);
             planAndExecute(arm_);
+
+             std::vector<geometry_msgs::msg::Pose> waypoints;
+            geometry_msgs::msg::Pose pose1 = target_pose.pose;
+            pose1.position.z = msg.z - 0.2;
+            waypoints.push_back(pose1);
+
+            geometry_msgs::msg::Pose pose2 = pose1;
+            pose2.position.x += 0.2;
+            waypoints.push_back(pose2);
+
+            moveit_msgs::msg::RobotTrajectory trajectory;
+
+            double fraction = arm_->computeCartesianPath(waypoints, 0.01, 0.0, trajectory);
+
+            if (fraction == 1){
+                arm_->execute(trajectory);
+            }
+
+            return pose2;
         }
 
 
@@ -113,7 +126,8 @@ class CommanderMoveIt
     std::shared_ptr<moveit::planning_interface::MoveGroupInterface> arm_;
     std::shared_ptr<moveit::planning_interface::MoveGroupInterface> gripper_;
     rclcpp::Subscription<example_interfaces::msg::Bool>::SharedPtr gripper_sub_;
-    rclcpp::Subscription<kr210_interfaces::msg::TargetPose>::SharedPtr target_pose_sub_;
+    rclcpp::Subscription<kr210_interfaces::msg::TargetPose>::SharedPtr pick_sub_;
+    rclcpp::Subscription<kr210_interfaces::msg::TargetPose>::SharedPtr place_sub_;
     std::shared_ptr<rclcpp::Node> node_;
 
     void openGripper(){
