@@ -27,6 +27,12 @@ class CommanderMoveIt
             gripper_sub_ = node_->create_subscription<example_interfaces::msg::Bool>("open_gripper", 10, 
                 std::bind(&CommanderMoveIt::openGripperCallback, this, std::placeholders::_1)
             );
+
+            target_pose_sub_ = node_->create_subscription<geometry_msgs::msg::Pose>("got_to_pose_target", 10, 
+                std::bind(&CommanderMoveIt::goToPoseTarget, this, std::placeholders::_1)  
+            );
+
+            // goToPoseTarget(1.99, 0.12, 0.92, 0.5, 0, 0);
             
         }
 
@@ -44,25 +50,41 @@ class CommanderMoveIt
             planAndExecute(arm_);
         }
 
-        void goToPoseTarget(double x, double y, double z, double roll, double pitch, double yaw)
+        void goToPoseTarget(const geometry_msgs::msg::Pose &msg)
         {
             tf2::Quaternion q;
-            q.setRPY(roll, pitch, yaw);
+            // msg.orientation im gonna used it as roll, pitch, yaw for testing
+            q.setRPY(msg.orientation.x, msg.orientation.y, msg.orientation.z);
             q = q.normalize();
 
             geometry_msgs::msg::PoseStamped target_pose;
             target_pose.header.frame_id = "base_link";
-            target_pose.pose.position.x = x;
-            target_pose.pose.position.y = y;
-            target_pose.pose.position.z = z;
-            // target_pose.pose.orientation.x = q.getX();
-            // target_pose.pose.orientation.y = q.getY();
-            // target_pose.pose.orientation.z = q.getZ();
-            // target_pose.pose.orientation.w = q.getW();
+            target_pose.pose.position = msg.position;
+            target_pose.pose.orientation.x = q.getX();
+            target_pose.pose.orientation.y = q.getY();
+            target_pose.pose.orientation.z = q.getZ();
+            target_pose.pose.orientation.w = q.getW();
 
             arm_->setStartStateToCurrentState();
             arm_->setPoseTarget(target_pose);
             planAndExecute(arm_);
+
+            std::vector<geometry_msgs::msg::Pose> waypoints;
+            geometry_msgs::msg::Pose pose1 = target_pose.pose;
+            pose1.position.z += -0.2;
+            waypoints.push_back(pose1);
+
+            geometry_msgs::msg::Pose pose2 = pose1;
+            pose2.position.x += 0.2;
+            waypoints.push_back(pose2);
+
+            moveit_msgs::msg::RobotTrajectory trajectory;
+
+            double fraction = arm_->computeCartesianPath(waypoints, 0.01, 0.0, trajectory);
+
+            if (fraction == 1){
+                arm_->execute(trajectory);
+            }
         }
 
 
@@ -71,6 +93,7 @@ class CommanderMoveIt
     std::shared_ptr<moveit::planning_interface::MoveGroupInterface> arm_;
     std::shared_ptr<moveit::planning_interface::MoveGroupInterface> gripper_;
     rclcpp::Subscription<example_interfaces::msg::Bool>::SharedPtr gripper_sub_;
+    rclcpp::Subscription<geometry_msgs::msg::Pose>::SharedPtr target_pose_sub_;
     std::shared_ptr<rclcpp::Node> node_;
 
     void openGripper(){
