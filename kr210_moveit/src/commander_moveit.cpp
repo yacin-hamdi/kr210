@@ -29,8 +29,8 @@ class CommanderMoveIt
                 std::bind(&CommanderMoveIt::openGripperCallback, this, std::placeholders::_1)
             );
 
-            target_pose_sub_ = node_->create_subscription<kr210_interfaces::msg::TargetPose>("got_to_pose_target", 10, 
-                std::bind(&CommanderMoveIt::goToPoseTarget, this, std::placeholders::_1)  
+            target_pose_sub_ = node_->create_subscription<kr210_interfaces::msg::TargetPose>("go_to_pose_target", 10, 
+                std::bind(&CommanderMoveIt::pickUp, this, std::placeholders::_1)  
             );
 
             // goToPoseTarget(1.99, 0.12, 0.92, 0.5, 0, 0);
@@ -51,10 +51,44 @@ class CommanderMoveIt
             planAndExecute(arm_);
         }
 
+        void pickUp(const kr210_interfaces::msg::TargetPose &msg){
+
+            
+            goToPoseTarget(msg);
+            tf2::Quaternion q;
+            q.setRPY(msg.roll, msg.pitch, msg.yaw);
+            q = q.normalize();
+            std::vector<geometry_msgs::msg::Pose> waypoints;
+            geometry_msgs::msg::Pose pose1;
+            pose1.position.x = msg.x;
+            pose1.position.y = msg.y;
+            pose1.position.z = msg.z - 0.2;
+            pose1.orientation.x = q.getX();
+            pose1.orientation.y = q.getY();
+            pose1.orientation.z = q.getZ();
+            pose1.orientation.w = q.getW();
+            
+            waypoints.push_back(pose1);
+
+            geometry_msgs::msg::Pose pose2 = pose1;
+            pose2.position.x += 0.2;
+            waypoints.push_back(pose2);
+
+            moveit_msgs::msg::RobotTrajectory trajectory;
+
+            double fraction = arm_->computeCartesianPath(waypoints, 0.01, 0.0, trajectory);
+
+            if (fraction == 1){
+                arm_->execute(trajectory);
+            }
+
+            closeGripper();
+        }
+
+
         void goToPoseTarget(const kr210_interfaces::msg::TargetPose &msg)
         {
-            tf2::Quaternion q;
-            // msg.orientation im gonna used it as roll, pitch, yaw for testing
+           tf2::Quaternion q;
             q.setRPY(msg.roll, msg.pitch, msg.yaw);
             q = q.normalize();
 
@@ -71,23 +105,6 @@ class CommanderMoveIt
             arm_->setStartStateToCurrentState();
             arm_->setPoseTarget(target_pose);
             planAndExecute(arm_);
-
-            std::vector<geometry_msgs::msg::Pose> waypoints;
-            geometry_msgs::msg::Pose pose1 = target_pose.pose;
-            pose1.position.z += -0.2;
-            waypoints.push_back(pose1);
-
-            geometry_msgs::msg::Pose pose2 = pose1;
-            pose2.position.x += 0.2;
-            waypoints.push_back(pose2);
-
-            moveit_msgs::msg::RobotTrajectory trajectory;
-
-            double fraction = arm_->computeCartesianPath(waypoints, 0.01, 0.0, trajectory);
-
-            if (fraction == 1){
-                arm_->execute(trajectory);
-            }
         }
 
 
