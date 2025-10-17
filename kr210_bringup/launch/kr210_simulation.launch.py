@@ -2,6 +2,7 @@ from launch import LaunchDescription
 from launch.actions import IncludeLaunchDescription, DeclareLaunchArgument, TimerAction
 from launch.substitutions import PathJoinSubstitution, LaunchConfiguration
 from launch_ros.substitutions import FindPackageShare
+from launch_ros.actions import Node
 
 def generate_launch_description():
     
@@ -31,7 +32,15 @@ def generate_launch_description():
                 )
 
     
+    commander = Node(
+        package="kr210_moveit",
+        executable="commander_moveit"
+    )
 
+    pick_place = Node(
+        package="kr210_moveit", 
+        executable="place_to_trash"
+    )
     
 
    
@@ -41,5 +50,7 @@ def generate_launch_description():
     return LaunchDescription([
         gazebo, 
         controller, 
-        moveit
+        moveit, 
+        commander, 
+        # pick_place
     ])
