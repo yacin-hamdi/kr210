@@ -14,9 +14,13 @@ ament_target_dependencies(test_moveit rclcpp moveit_ros_planning_interface)
 add_executable(commander_moveit src/commander_moveit.cpp)
 ament_target_dependencies(commander_moveit rclcpp moveit_ros_planning_interface geometry_msgs example_interfaces kr210_interfaces)
 
+add_executable(place_to_trash src/place_to_trash.cpp)
+ament_target_dependencies(place_to_trash rclcpp kr210_interfaces)
+
 install(TARGETS
   test_moveit
   commander_moveit
+  place_to_trash
   DESTINATION lib/${PROJECT_NAME}
 )
 

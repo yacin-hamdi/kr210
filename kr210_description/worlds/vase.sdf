@@ -70,7 +70,7 @@
       <pose>2.18138 0.208437 -0.312234 0 1e-06 3.11118</pose>
       <self_collide>false</self_collide>
     </model>
-    <model name='ChairA_01_002'>
+    <model name='trash_01'>
       <static>true</static>
       <include>
         <uri>model://aws_robomaker_residential_Trash_01</uri>
@@ -78,11 +78,6 @@
       <pose>0.979586 -1.15578 0.006283 0 0 -1.50414</pose>
       <self_collide>false</self_collide>
     </model>
-    <include>
-      <uri>file://<urdf-string></uri>
-      <name>kr210</name>
-      <pose>0 0 0 0 -0 0</pose>
-    </include>
     <model name='aws_Vase_01_visual'>
       <link name='link'>
         <visual name='visual'>
@@ -118,6 +113,26 @@
       <static>false</static>
       <self_collide>false</self_collide>
     </model>
+    <include>
+      <uri>file://<urdf-string></uri>
+      <name>kr210</name>
+      <pose>0 0 0 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/moose/kr210/install/kr210_description/share/kr210_description/models/aws_robomaker_residential_Carpet_01</uri>
+      <name>aws_robomaker_residential_Carpet_01</name>
+      <pose>1.78599 -0.234425 0 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/moose/kr210/install/kr210_description/share/kr210_description/models/aws_robomaker_residential_LightC_01</uri>
+      <name>aws_robomaker_residential_LightC_01</name>
+      <pose>2.14452 -0.613752 0.938973 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/moose/kr210/install/kr210_description/share/kr210_description/models/aws_robomaker_residential_SecurityCamera_01</uri>
+      <name>aws_robomaker_residential_SecurityCamera_01</name>
+      <pose>1.75472 0.650526 0.915964 0 -1e-06 -0</pose>
+    </include>
     <light name='sun' type='directional'>
       <pose>0 0 10 0 -0 0</pose>
       <cast_shadows>true</cast_shadows>

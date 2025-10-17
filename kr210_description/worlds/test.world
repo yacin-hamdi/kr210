@@ -66,48 +66,30 @@
         <pose>0.979586 -1.15578 0.006283 0 0 -1.50414</pose>
 	</model>
 
-    <!-- <model name='vase_01'>
+    <model name='vase_01'>
         <include>
             <uri>model://aws_robomaker_residential_Vase_01</uri>
         </include>
-        <pose>1.99341 0.123495 0.915454 2e-06 -1e-06 -0</pose>
-	</model> -->
+        <pose>1.75472 0.650526 0.915964 0 -1e-06 -0</pose>
+        
+	</model>
 
-    <model name='aws_Vase_01_visual'>
-      <link name='link'>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>file:///home/moose/rosbot_ws/src/rosbot_description/models/aws_robomaker_residential_Vase_01/meshes/aws_Vase_01_visual.DAE</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>file:///home/moose/rosbot_ws/src/rosbot_description/models/aws_robomaker_residential_Vase_01/meshes/aws_Vase_01_visual.DAE</uri>
-            </mesh>
-          </geometry>
-        </collision>
-        <pose>0 0 0 0 -0 0</pose>
-        <inertial>
-          <pose>0 0 0 0 -0 0</pose>
-          <mass>1</mass>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-        </inertial>
-        <enable_wind>false</enable_wind>
-      </link>
-      <pose>1.99341 0.123495 0.915454 2e-06 -1e-06 -0</pose>
-      <static>false</static>
-      <self_collide>false</self_collide>
-    </model>
+  <model name='light'>
+        <include>
+            <uri>model://aws_robomaker_residential_LightC_01</uri>
+        </include>
+        <pose>2.14452 -0.613752 0.938973 0 0 0</pose>
+	</model>
+ 
+  <model name='camera'>
+        <include>
+            <uri>model://aws_robomaker_residential_SecurityCamera_01</uri>
+        </include>
+        <pose>1.99341 0.123495 0.915454 0 0 0</pose>
+        
+	</model>
+
+    
  
 
 

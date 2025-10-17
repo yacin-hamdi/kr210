@@ -59,7 +59,7 @@ class CommanderMoveIt
 
             geometry_msgs::msg::Pose pose = goToPoseTarget(msg);
             closeGripper();
-            pose.position.z += 0.2;
+            pose.position.z += 0.4;
             waypoints.push_back(pose);
             moveit_msgs::msg::RobotTrajectory trajectory;
 
@@ -76,6 +76,15 @@ class CommanderMoveIt
 
             geometry_msgs::msg::Pose pose = goToPoseTarget(msg);
             openGripper();
+            pose.position.z += 0.4;
+            waypoints.push_back(pose);
+            moveit_msgs::msg::RobotTrajectory trajectory;
+
+            double fraction = arm_->computeCartesianPath(waypoints, 0.01, 0.0, trajectory);
+
+            if (fraction == 1){
+                arm_->execute(trajectory);
+            }
             
         }
 
